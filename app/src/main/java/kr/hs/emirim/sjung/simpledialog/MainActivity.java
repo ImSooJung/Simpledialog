@@ -36,19 +36,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 but.setText(items[which]);
             }
         });*/
-        dialog.setSingleChoiceItems(items, 0,new DialogInterface.OnClickListener() {
-            /**
-             * This method will be invoked when a button in the dialog is clicked.
-             *
-             * @param dialog The dialog that received the click.
-             * @param which  The button that was clicked (e.g.
-             *               {@link DialogInterface#BUTTON1}) or the position
-             */
+
+        /*dialog.setSingleChoiceItems(items, 0,new DialogInterface.OnClickListener() {
+
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 but.setText(items[which]);
             }
-        });
+        });*/
+        dialog.setMultiChoiceItems(items, checkArr, new DialogInterface.OnMultiChoiceClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialog, int which, boolean isChecked) {
+                        but.setText(items[which]);
+
+                    }
+                });
 
         dialog.setIcon(R.drawable.images);
         dialog.setPositiveButton("확인 ", new DialogInterface.OnClickListener() {
